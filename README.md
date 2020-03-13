@@ -37,7 +37,7 @@ How about learning AWS by deploying Spring Boot Docker Containers to Amazon Web 
 - URL - `http://localhost:8000/api/currency-exchange-microservice/currency-exchange/from/EUR/to/INR`
 - HEALTH URL - `http://localhost:8000/api/currency-exchange-microservice/manage/health`
 - Enviroment Variables
-  - SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
+  - SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
   - /dev/currency-exchange-service/RDS_DB_NAME  - exchange_db
   - /dev/currency-exchange-service/RDS_HOSTNAME 
   - /dev/currency-exchange-service/RDS_PASSWORD 
@@ -50,12 +50,12 @@ How about learning AWS by deploying Spring Boot Docker Containers to Amazon Web 
 - URL - `http://localhost:8100/api/currency-conversion-microservice/currency-converter/from/USD/to/INR/quantity/10`
 - HEALTH URL - `http://localhost:8100/api/currency-conversion-microservice/manage/health`
 - Enviroment Variables
-  - SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
+  - SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
   - /dev/currency-conversion-service/CURRENCY_EXCHANGE_URI
 
 ## Enviroment Variables
 
-SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
+SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
 
 - /dev/currency-conversion-service/CURRENCY_EXCHANGE_URI
 - /dev/currency-exchange-service/RDS_DB_NAME  - exchange_db
@@ -67,15 +67,15 @@ SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
 ## Setting up App Mesh
 
 #### Virtual nodes 
-- currency-exchange-service-vn - currency-exchange-service.salmsrocksutes-dev.com
-- currency-conversion-service-vn - currency-conversion-service.salmsrocksutes-dev.com
+- currency-exchange-service-vn - currency-exchange-service.capstone-dev.com
+- currency-conversion-service-vn - currency-conversion-service.capstone-dev.com
 
 #### Virtual services 
-- currency-exchange-service.capstone-dev.com-> currency-exchange-service-vn
-- currency-conversion-service.capstone-dev.com-> currency-conversion-service-vn
+- currency-exchange-service.capstone-dev.com -> currency-exchange-service-vn
+- currency-conversion-service.capstone-dev.com -> currency-conversion-service-vn
 
 #### Backend Registration
-- currency-conversion-service-vn -> currency-exchange-service.salmsrocksutes-dev.com
+- currency-conversion-service-vn -> currency-exchange-service.capstone-dev.com
 
 #### Task Definition Updates
 - aws-currency-conversion-service
@@ -89,7 +89,7 @@ SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
 ## Deploying Version 2 of Currency Exchange Service to ECS and App Mesh
 
 #### App Mesh - New Virtual Node
-currency-exchange-service-v2-vn - currency-exchange-service-v2.salmsrocksutes-dev.com
+currency-exchange-service-v2-vn - currency-exchange-service-v2.capstone-dev.com
 
 #### ECS Fargate - Update Task Definition
 aws-currency-exchange-service-h2
@@ -106,7 +106,7 @@ currency-exchange-service-vr distributing traffic to
 - currency-exchange-service-v2-vn
 
 #### App Mesh - Update Service to Use Virtual Router
-currency-exchange-service.capstone-dev.com-> currency-exchange-service-vr
+currency-exchange-service.capstone-dev.com -> currency-exchange-service-vr
 
 
 #### jq
@@ -145,21 +145,6 @@ aws servicediscovery delete-namespace --id=ns-ctvtysasurklojm3
 
 #### Installing Guides
 
-- [Playlist - Installing Java, Eclipse & Embedded Maven](https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3)
-
-#### Troubleshooting Installations
-- Eclipse and Embedded Maven
-  - Troubleshooting Guide : https://github.com/salmsrocksutes/salmsrocksutes-initiatives/tree/master/The-salmsrocksutes-TroubleshootingGuide-And-FAQ#tip--troubleshooting-embedded-maven-in-eclipse
-  - PDF : https://github.com/salmsrocksutes/SpringSalmsrocksutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
-  - GIT Repository For Installation : https://github.com/salmsrocksutes/getting-started-in-5-steps
-
-## Course Overview
-
-This course would be a perfect first step as an introduction to Amazon Web Services - AWS and the Cloud.
-
-In this course, we deploy a variety of Java Spring Boot Microservices to Amazon Web Services using AWS Fargate and ECS - Elastic Container Service. 
-
-You will learn the basics of implementing Container Orchestration with ECS (Elastic Container Service) - Cluster, Task Definitions, Tasks, Containers and Services. You will learn about the two launch types of ECS - EC2 and AWS Fargate. In this course, we would focus extensively on AWS Fargate to simplify your Container Orchestration. You will learn to deploy multiple containers in the same ECS task.
 
 You will learn to Build Container Images for your Java Spring Boot Microservice Projects.
 
@@ -171,13 +156,7 @@ You will implement the following features for your Microservices
 - Service Discovery with Route 53 Hosted Zones and DNS.
 - Continuous Integration and Continuous Deployment with AWS Code Pipeline
 
-You will learn to debug problems with deploying containers using Service events and AWS CloudWatch logs.
 
-You will learn about automating deployments and creating a continuous delivery pipeline with AWS Code Pipeline. You will learn how to Auto Scale applications based on load as well as deploy multiple instances behind a load balancer using AWS ECS Fargate.
-
-You will be using a number of AWS Services - ECS - Elastic Container Services, AWS Fargate, EC2 - Elastic Compute Cloud, S3, AWS CodePipeLine, AWS CodeBuild, IAM, CloudWatch, ELB, Target Groups, X Ray, AWS Parameter Store, AWS App Mesh and Route 53. 
-
-You will be using deploying a variety of projects to Amazon Web Services (AWS). These projects are created with  Spring Boot (REST API Framework), Spring (Dependency Management), Maven (dependencies management), Eclipse (Java IDE) and Tomcat Embedded Web Server. We will help you set up each one of these.
 
 ## What you'll learn
 - You will Learn the Fundamentals of Amazon Web Services from Zero, no previous experience required
@@ -192,7 +171,6 @@ You will be using deploying a variety of projects to Amazon Web Services (AWS). 
 - You will learn to implement Centralized Configuration Management for your Java Spring Boot Microservices with AWS Parameter Store
 - You will learn to implement Distributed Tracing for Java Spring Boot Microservices with AWS X Ray
 - You will learn the basics of AWS App Mesh - Mesh, Virtual Nodes and Virtual Services. You will learn to perform Canary Deployments for Java Spring Boot Microservices using AWS AppMesh.
-- You will Join 300,000 Learners having AMAZING LEARNING Experiences with salmsrocksutes
 
 ## Requirements
 - You have an attitude to learn while having fun :)
@@ -587,6 +565,9 @@ Container2 -- DockerEngine [style=invis]
 Container3 -- DockerEngine [style=invis]
 DockerEngine -- HostOS [style=invis]
 HostOS -- CloudInfrastructure [style=invis]
+
+}
+
 
 
 
