@@ -1,6 +1,6 @@
 # Deploy Spring Boot and Docker Microservices to AWS using ECS and AWS Fargate
 
-[![Image](https://www.springboottutorial.com/images/Course-Deploy-Java-Spring-Boot-Microservices-To-ECS.png "Deploying Spring Boot Microservices to AWS using ECS and AWS Fargate")](https://www.udemy.com/course/deploy-spring-microservices-to-aws-with-ecs-and-aws-fargate/)
+
 
 
 ## Learn Amazon Web Services - AWS - deploying Spring Boot and Docker Microservices to AWS Fargate. Implement Service Discovery, Load Balancing, Auto Discovery, Centralized Configuration and Distributed Tracing in AWS.
@@ -11,11 +11,6 @@ How about learning AWS by deploying Spring Boot Docker Containers to Amazon Web 
 
 ## Getting Started
 
-- [Video - Docker in 5 Steps](https://youtu.be/Rt5G5Gj7RP0)
-- [Video - Spring in 10 Steps](https://www.youtube.com/watch?v=edgZo2g-LTM)
-- [Video - Spring Boot in 10 Steps](https://www.youtube.com/watch?v=pcdpk3Yd1EA)
-- [Video - JPA/Hibernate in 10 Steps](https://www.youtube.com/watch?v=MaI0_XdpdP8)
-- [AWS Code Pipeline Github Repo](https://github.com/salmsrocksutes/hello-world-rest-api-aws-ecs-codepipeline)
 
 ## Container Images
 
@@ -42,7 +37,7 @@ How about learning AWS by deploying Spring Boot Docker Containers to Amazon Web 
 - URL - `http://localhost:8000/api/currency-exchange-microservice/currency-exchange/from/EUR/to/INR`
 - HEALTH URL - `http://localhost:8000/api/currency-exchange-microservice/manage/health`
 - Enviroment Variables
-  - SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
+  - SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
   - /dev/currency-exchange-service/RDS_DB_NAME  - exchange_db
   - /dev/currency-exchange-service/RDS_HOSTNAME 
   - /dev/currency-exchange-service/RDS_PASSWORD 
@@ -55,12 +50,12 @@ How about learning AWS by deploying Spring Boot Docker Containers to Amazon Web 
 - URL - `http://localhost:8100/api/currency-conversion-microservice/currency-converter/from/USD/to/INR/quantity/10`
 - HEALTH URL - `http://localhost:8100/api/currency-conversion-microservice/manage/health`
 - Enviroment Variables
-  - SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
+  - SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
   - /dev/currency-conversion-service/CURRENCY_EXCHANGE_URI
 
 ## Enviroment Variables
 
-SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
+SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
 
 - /dev/currency-conversion-service/CURRENCY_EXCHANGE_URI
 - /dev/currency-exchange-service/RDS_DB_NAME  - exchange_db
@@ -76,8 +71,8 @@ SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
 - currency-conversion-service-vn - currency-conversion-service.salmsrocksutes-dev.com
 
 #### Virtual services 
-- currency-exchange-service.salmsrocksutes-dev.com -> currency-exchange-service-vn
-- currency-conversion-service.salmsrocksutes-dev.com -> currency-conversion-service-vn
+- currency-exchange-service.capstone-dev.com-> currency-exchange-service-vn
+- currency-conversion-service.capstone-dev.com-> currency-conversion-service-vn
 
 #### Backend Registration
 - currency-conversion-service-vn -> currency-exchange-service.salmsrocksutes-dev.com
@@ -111,7 +106,7 @@ currency-exchange-service-vr distributing traffic to
 - currency-exchange-service-v2-vn
 
 #### App Mesh - Update Service to Use Virtual Router
-currency-exchange-service.salmsrocksutes-dev.com -> currency-exchange-service-vr
+currency-exchange-service.capstone-dev.com-> currency-exchange-service-vr
 
 
 #### jq
@@ -593,16 +588,5 @@ Container3 -- DockerEngine [style=invis]
 DockerEngine -- HostOS [style=invis]
 HostOS -- CloudInfrastructure [style=invis]
 
-}
-```
 
-### Troubleshooting
-- Refer our TroubleShooting Guide - https://github.com/salmsrocksutes/salmsrocksutes-initiatives/tree/master/The-salmsrocksutes-TroubleshootingGuide-And-FAQ
 
-## Youtube Playlists - 500+ Videos
-
-[Click here - 30+ Playlists with 500+ Videos on Spring, Spring Boot, REST, Microservices and the Cloud](https://www.youtube.com/user/rithustutorials/playlists?view=1&sort=lad&flow=list)
-
-## Keep Learning salmsrocksutes
-
-salmsrocksutes is creating amazing solutions for you to learn Spring Boot, Full Stack and the Cloud - Docker, Kubernetes, AWS, React, Angular etc. - [Check out all our courses here](https://github.com/salmsrocksutes/learn)
