@@ -37,7 +37,7 @@ How about learning AWS by deploying Spring Boot Docker Containers to Amazon Web 
 - URL - `http://localhost:8000/api/currency-exchange-microservice/currency-exchange/from/EUR/to/INR`
 - HEALTH URL - `http://localhost:8000/api/currency-exchange-microservice/manage/health`
 - Enviroment Variables
-  - SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
+  - SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
   - /dev/currency-exchange-service/RDS_DB_NAME  - exchange_db
   - /dev/currency-exchange-service/RDS_HOSTNAME 
   - /dev/currency-exchange-service/RDS_PASSWORD 
@@ -50,12 +50,12 @@ How about learning AWS by deploying Spring Boot Docker Containers to Amazon Web 
 - URL - `http://localhost:8100/api/currency-conversion-microservice/currency-converter/from/USD/to/INR/quantity/10`
 - HEALTH URL - `http://localhost:8100/api/currency-conversion-microservice/manage/health`
 - Enviroment Variables
-  - SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
+  - SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
   - /dev/currency-conversion-service/CURRENCY_EXCHANGE_URI
 
 ## Enviroment Variables
 
-SSM URN - `arn:aws:ssm:us-east-1:<account-id>:parameter/<name>`
+SSM URN - `arn:aws:ssm:us-east-2:<account-id>:parameter/<name>`
 
 - /dev/currency-conversion-service/CURRENCY_EXCHANGE_URI
 - /dev/currency-exchange-service/RDS_DB_NAME  - exchange_db
